@@ -10,7 +10,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 VENDOR_DIR="$BUILD_DIR/vendor"
 INSTALL_DIR="$VENDOR_DIR/imagemagick"
-CACHE_FILE="$CACHE_DIR/imagemagick.tar.xz"
+CACHE_FILE="$CACHE_DIR/imagemagick.tar.gz"
 
 
 if [ ! -f $CACHE_FILE ]; then
@@ -30,7 +30,7 @@ if [ ! -f $CACHE_FILE ]; then
     ls $BUILD_DIR | indent
     exit 1;
   fi
-  tar xvzf $BUILD_DIR/$IMAGE_MAGICK_FILE | indent
+  tar xzf $BUILD_DIR/$IMAGE_MAGICK_FILE | indent
 
   echo "-----> Building ImageMagick"
   cd $IMAGE_MAGICK_DIR
