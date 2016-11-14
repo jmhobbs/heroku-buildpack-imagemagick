@@ -30,7 +30,7 @@ if [ ! -f $CACHE_FILE ]; then
     ls $BUILD_DIR | indent
     exit 1;
   fi
-  tar xzf $BUILD_DIR/$IMAGE_MAGICK_FILE | indent
+  tar xvf $BUILD_DIR/$IMAGE_MAGICK_FILE | indent
 
   echo "-----> Building ImageMagick"
   cd $IMAGE_MAGICK_DIR
@@ -51,7 +51,7 @@ if [ ! -f $CACHE_FILE ]; then
 else
   # cache exists, extract it
   echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
-  tar xvf $CACHE_FILE -C $VENDOR_DIR
+  tar xzf $CACHE_FILE -C $VENDOR_DIR
 fi
 
 echo "-----> Writing policy file"
