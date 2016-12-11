@@ -1,4 +1,7 @@
 #!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
 
 indent() {
   sed -u 's/^/       /'
@@ -12,6 +15,7 @@ VENDOR_DIR="$BUILD_DIR/vendor"
 INSTALL_DIR="$VENDOR_DIR/imagemagick"
 CACHE_FILE="$CACHE_DIR/imagemagick.tar.gz"
 
+mkdir -p $VENDOR_DIR
 
 if [ ! -f $CACHE_FILE ]; then
   # install imagemagick
@@ -49,7 +53,7 @@ if [ ! -f $CACHE_FILE ]; then
 else
   # cache exists, extract it
   echo "-----> Extracting ImageMagick $CACHE_FILE => $VENDOR_DIR"
-  tar xzf $CACHE_FILE -C $VENDOR_DIR
+  tar xzvf $CACHE_FILE -C $VENDOR_DIR
 fi
 
 echo "-----> Writing policy file"
