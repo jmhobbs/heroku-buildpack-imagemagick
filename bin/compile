@@ -71,7 +71,7 @@ EOF
 echo "-----> Updating environment variables"
 PROFILE_PATH="$BUILD_DIR/.profile.d/imagemagick.sh"
 ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick"
-mkdir -p "$PROFILE_PATH"
+mkdir -p "$BUILD_DIR/.profile.d/"
 {
   echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH"
   echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH"
